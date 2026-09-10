@@ -11,9 +11,10 @@ const journeyLink=(from,to)=>link('https://www.google.com/maps/dir/?api=1&origin
 const paras=t=>String(t||'').split('\n').map(x=>`<p>${esc(x)}</p>`).join('');
 const decode=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 const checklistGroups=[
-  {key:'urgent',title:'Urgent — book now',badge:'URGENT',intro:'Start here. These bookings depend on limited ticket or train availability. Resolve the luggage step before paying for the arrival-day ticket. Check the current slot and final price before paying.',ids:['action-1','action-2','action-3','action-4','action-5','action-6','action-7','action-12']},
+  {key:'urgent',title:'Urgent — book now',badge:'URGENT',intro:'Start here. These bookings depend on limited ticket or train availability. Check the current slot and final price before paying.',ids:['action-1','action-2','action-4','action-5','action-6','action-7','action-12']},
   {key:'release',title:'Time-sensitive — book when released',badge:'RELEASE WINDOW',intro:'These need prompt action on the date shown. They cannot necessarily be reserved today; set a reminder now.',ids:['action-8','action-14']},
-  {key:'prepare',title:'Important — before departure',badge:'BEFORE DEPARTURE',intro:'Complete these before traveling. Confirm accommodation and travel documents, reserve meals and the airport pickup, and prepare transport and offline tickets.',ids:['action-21','action-22','action-23','action-9','action-10','action-11','action-18','action-15']},
+  {key:'prepare',title:'Important — before departure',badge:'BEFORE DEPARTURE',intro:'Complete these before traveling. Confirm accommodation and travel documents, reserve meals and the airport pickup, and prepare transport and offline tickets.',ids:['action-3','action-21','action-22','action-23','action-9','action-10','action-11','action-18','action-15']},
+  {key:'optional',title:'Optional — decide during the trip',badge:'OPTIONAL',intro:'These are choices, not required bookings. Prices are retained for comparison and excluded from the base budget.',ids:['action-24']},
   {key:'later',title:'Later — during the trip',badge:'LATER',intro:'Do these at the time indicated. Weather and service checks are most useful close to departure; they do not need to delay the urgent bookings above.',ids:['action-13','action-16','action-17','action-19','action-20']}
 ];
 function checklistHtml(items){
